@@ -45,8 +45,19 @@ app.post("/newOrder", async (req, res)=>{
     res.send("Order Saved!");
 })
 
-app.listen(PORT, ()=>{
-    console.log("App Started");
-    mongoose.connect(url);  
+// app.listen(PORT, ()=>{
+//     console.log("App Started");
+//     mongoose.connect(url);  
+//     console.log("DB connected!");
+// })
+
+mongoose.connect(url)
+  .then(() => {
     console.log("DB connected!");
-})
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.log("DB connection error:", err);
+  });
