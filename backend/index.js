@@ -13,6 +13,7 @@ const cookieParser = require("cookie-parser");
 
 const PORT = process.env.PORT || 3002;
 const url = process.env.MONGO_URL;
+console.log("MONGO_URL:", process.env.MONGO_URL);
 
 const app = express();
 
