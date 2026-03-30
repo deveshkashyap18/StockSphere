@@ -25,7 +25,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use("/api/auth", authRoute);
 
-app.get("/allHonldings", async (req, res)=>{
+app.get("/allHoldings", async (req, res)=>{
     let allHoldings= await HoldingsModel.find({});
     res.json(allHoldings);
 })
